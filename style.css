@@ -1,0 +1,257 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1f2933;
+  background: #f4f6f8;
+  line-height: 1.6;
+}
+
+/* ---------- Cabeçalho e menu ---------- */
+.cabecalho {
+  background: #1f4e79;
+  color: #ffffff;
+  padding: 1rem 1.5rem 0;
+}
+
+.cabecalho h1 {
+  margin: 0 0 1rem;
+  font-size: 1.4rem;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.botao-aba {
+  background: transparent;
+  color: #dbe7f3;
+  border: none;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 6px 6px 0 0;
+}
+
+.botao-aba:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.botao-aba.ativa {
+  background: #f4f6f8;
+  color: #1f4e79;
+  font-weight: bold;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+/* Todas as abas começam escondidas; só a que tem a classe "visivel" aparece */
+.aba {
+  display: none;
+}
+
+.aba.visivel {
+  display: block;
+}
+
+h2 {
+  color: #1f4e79;
+}
+
+h3 {
+  margin-top: 1.5rem;
+}
+
+/* ---------- Aba CAI ---------- */
+.formula {
+  background: #e8f0f8;
+  border-left: 4px solid #1f4e79;
+  padding: 0.75rem 1rem;
+  font-weight: bold;
+}
+
+.aviso {
+  background: #fff7e0;
+  border-left: 4px solid #d9a400;
+  padding: 0.75rem 1rem;
+  margin-top: 1.5rem;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+.tabela th,
+.tabela td {
+  border-bottom: 1px solid #d5dde5;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.tabela th {
+  background: #e8f0f8;
+}
+
+.linha-total td {
+  font-weight: bold;
+}
+
+/* ---------- Aba Protocolo ---------- */
+.campo-nome {
+  margin-bottom: 1.25rem;
+}
+
+.campo-nome label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.campo-nome input {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #aab7c4;
+  border-radius: 6px;
+}
+
+.erro {
+  color: #b00020;
+  margin: 0.25rem 0 0;
+}
+
+.dimensao {
+  background: #ffffff;
+  border: 1px solid #c5d1dc;
+  border-radius: 8px;
+  margin: 0 0 1rem;
+  padding: 0.5rem 1rem 0.75rem;
+}
+
+.dimensao legend {
+  font-weight: bold;
+  color: #1f4e79;
+  padding: 0 0.5rem;
+}
+
+.criterio {
+  display: block;
+  padding: 0.25rem 0;
+  cursor: pointer;
+}
+
+.criterio input {
+  margin-right: 0.4rem;
+}
+
+.acoes {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.botao-principal,
+.botao-secundario {
+  padding: 0.7rem 1.4rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.botao-principal {
+  background: #1f4e79;
+  color: #ffffff;
+  border: 1px solid #1f4e79;
+}
+
+.botao-principal:hover {
+  background: #173d5e;
+}
+
+.botao-secundario {
+  background: #ffffff;
+  color: #1f4e79;
+  border: 1px solid #1f4e79;
+}
+
+.botao-secundario:hover {
+  background: #e8f0f8;
+}
+
+/* ---------- Relatório ---------- */
+.relatorio {
+  background: #ffffff;
+  border: 1px solid #c5d1dc;
+  border-radius: 8px;
+  margin-top: 2rem;
+  padding: 1rem 1.5rem 1.5rem;
+}
+
+.relatorio h3 {
+  margin-top: 0;
+  color: #1f4e79;
+}
+
+.destaque {
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+
+.resultado-total {
+  background: #e8f0f8;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+}
+
+.resultado-total p {
+  margin: 0.25rem 0;
+}
+
+.numero-grande {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f4e79;
+}
+
+.barra {
+  background: #d5dde5;
+  border-radius: 6px;
+  height: 0.8rem;
+  min-width: 80px;
+  overflow: hidden;
+}
+
+.barra-preenchida {
+  background: #1f4e79;
+  height: 100%;
+}
+
+/* ---------- Impressão: só o relatório ---------- */
+@media print {
+  .cabecalho,
+  .formulario,
+  .acoes-relatorio {
+    display: none;
+  }
+
+  body {
+    background: #ffffff;
+  }
+
+  .relatorio {
+    border: none;
+    margin-top: 0;
+  }
+}

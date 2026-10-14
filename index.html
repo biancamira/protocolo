@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coeficiente de Assimetria Informacional</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="cabecalho">
+    <h1>Coeficiente de Assimetria Informacional</h1>
+    <nav class="menu">
+      <!-- data-aba diz qual seção cada botão deve mostrar -->
+      <button class="botao-aba ativa" data-aba="sobre">Sobre</button>
+      <button class="botao-aba" data-aba="cai">Coeficiente de Assimetria Informacional (CAI)</button>
+      <button class="botao-aba" data-aba="protocolo">Protocolo</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== ABA SOBRE (rascunho: edite o texto como preferir) ===== -->
+    <section id="sobre" class="aba visivel">
+      <h2>Sobre</h2>
+      <p>
+        Esta ferramenta permite avaliar a transparência das informações disponíveis no site de um
+        periódico científico, com base no Protocolo de Transparência e Melhores Práticas e no
+        Coeficiente de Assimetria Informacional (CAI), propostos na tese
+        <em>Periódicos Predatórios e Assimetria Informacional: uma análise com base em princípios
+        de transparência e melhores práticas</em> (Mira, 2025).
+      </p>
+      <p>
+        A assimetria informacional ocorre quando uma das partes de uma relação dispõe de mais
+        informação do que a outra. Na relação entre autor e periódico, é o periódico que decide
+        quais informações sobre suas políticas e processos editoriais ficam disponíveis no site.
+        Quanto menos informação o site apresenta, menos o autor consegue avaliar e verificar
+        antes de submeter um manuscrito.
+      </p>
+      <p>
+        O protocolo reúne 44 critérios, organizados em 6 dimensões, avaliados como presentes ou
+        ausentes. O resultado é o CAI, apresentado no total e por dimensão. A ferramenta mede a
+        presença de informação; ela não identifica, por si só, periódicos predatórios.
+      </p>
+    </section>
+
+    <!-- ===== ABA CAI ===== -->
+    <section id="cai" class="aba">
+      <h2>Coeficiente de Assimetria Informacional (CAI)</h2>
+
+      <h3>Como é calculado</h3>
+      <p>O CAI é a proporção de critérios presentes no site do periódico em relação ao total de critérios do protocolo:</p>
+      <p class="formula">CAI = critérios presentes ÷ total de critérios</p>
+      <p>
+        O mesmo cálculo é feito para cada dimensão, usando apenas os critérios daquela dimensão:
+      </p>
+      <p class="formula">CAI da dimensão = critérios presentes na dimensão ÷ total de critérios da dimensão</p>
+
+      <h3>Como interpretar</h3>
+      <ul>
+        <li>O CAI varia de <strong>0 a 1</strong>.</li>
+        <li><strong>0</strong> indica que nenhuma das informações avaliadas está presente; <strong>1</strong> indica que todas estão presentes.</li>
+        <li>Multiplicado por 100, o valor pode ser lido como porcentagem (por exemplo, 0,75 corresponde a 75%).</li>
+        <li>Quanto mais próximo de 1, mais informação o site disponibiliza ao autor e, portanto, menor a assimetria informacional.</li>
+      </ul>
+
+      <h3>Exemplo</h3>
+      <p>Se um site apresenta 33 dos 44 critérios, o CAI é 33 ÷ 44 = 0,75, ou 75%.</p>
+
+      <h3>Critérios por dimensão</h3>
+      <table class="tabela">
+        <thead>
+          <tr><th>Dimensão</th><th>Nome</th><th>Nº de critérios</th></tr>
+        </thead>
+        <tbody id="corpo-tabela-dimensoes"></tbody>
+      </table>
+
+      <p class="aviso">
+        O CAI mede a presença de informação no site, não a qualidade do periódico. Na tese, o valor
+        do coeficiente de um periódico isolado não permitiu, por si só, concluir a que grupo ele
+        pertence. Use o resultado como um indicador de transparência, com atenção a essa limitação.
+      </p>
+    </section>
+
+    <!-- ===== ABA PROTOCOLO ===== -->
+    <section id="protocolo" class="aba">
+      <h2>Protocolo</h2>
+      <p>
+        Informe o nome do periódico e, enquanto analisa o site, marque os critérios cuja informação
+        está <strong>presente</strong>. Critérios sem marcação serão considerados ausentes.
+      </p>
+
+      <form id="form-protocolo" class="formulario">
+        <div class="campo-nome">
+          <label for="nome-revista">Nome do periódico</label>
+          <input type="text" id="nome-revista" autocomplete="off">
+          <p id="erro-nome" class="erro" hidden>Informe o nome do periódico.</p>
+        </div>
+
+        <!-- as dimensões e critérios são criados pelo script.js a partir do protocolo.js -->
+        <div id="lista-protocolo"></div>
+
+        <div class="acoes">
+          <button type="submit" class="botao-principal">Calcular CAI</button>
+          <button type="reset" class="botao-secundario">Limpar</button>
+        </div>
+      </form>
+
+      <div id="relatorio" class="relatorio" hidden></div>
+    </section>
+
+  </main>
+
+  <!-- A ordem importa: os dados vêm primeiro, depois o cálculo, depois o script da página -->
+  <script src="protocolo.js"></script>
+  <script src="calculo.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
